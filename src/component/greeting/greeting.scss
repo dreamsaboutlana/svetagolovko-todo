@@ -1,0 +1,12 @@
+@import "./../../variables";
+
+.greeting {
+  width:$persent;
+  margin-top:2*$unit;
+  padding: $common-paddings;
+  text-align: center;
+  font: bold 24px Arial;
+  background-color: lightsteelblue;
+  color: lighten(#000, 50%);
+  border-radius: 5px;
+}

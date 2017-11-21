@@ -5,6 +5,7 @@ import { Main } from './component/main';
 import { Footer } from './component/footer';
 import { Error } from './component/error/Error';
 
+
 import './app.scss';
 
 export const App = (
@@ -12,9 +13,9 @@ export const App = (
     <Header/>
 
     {/*<Error*/}
-      {/*text='Im props'*/}
-      {/*data={ {test:123} }*/}
-      {/*color='red'*/}
+    {/*text='Im props'*/}
+    {/*data={ {test:123} }*/}
+    {/*color='red'*/}
     {/*/>*/}
 
     <Main/>
