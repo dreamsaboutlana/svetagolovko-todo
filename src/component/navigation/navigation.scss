@@ -1,0 +1,20 @@
+@import "./../../variables";
+
+.nav {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: lavender;
+  }
+  li {
+    padding: $common-paddings;
+    a {
+      color: gray;
+      font: bold 14px Arial;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+}

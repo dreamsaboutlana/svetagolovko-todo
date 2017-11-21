@@ -1,0 +1,16 @@
+@import "variables";
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background: $main-bg;
+  margin: 0;
+  padding: 0;
+  max-height: $persent;
+  height: 100vh;
+  #app,
+  .inner-app {
+    height: $persent;
+  }
+}
