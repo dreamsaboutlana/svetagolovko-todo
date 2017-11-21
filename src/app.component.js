@@ -11,11 +11,11 @@ export const App = (
   <div className='inner-app'>
     <Header/>
 
-    <Error
-      text='Im props'
-      data={ {test:123} }
-      color='red'
-    />
+    {/*<Error*/}
+      {/*text='Im props'*/}
+      {/*data={ {test:123} }*/}
+      {/*color='red'*/}
+    {/*/>*/}
 
     <Main/>
     <Footer/>
