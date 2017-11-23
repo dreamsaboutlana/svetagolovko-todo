@@ -3,10 +3,10 @@ import React from 'react';
 import './greeting.scss';
 
 const greet = (name) => {
-  let time = new Date().getHours();
-  let newName = name ? `, ${name}` : '';
+  const time = new Date().getHours();
+  const newName = name ? `, ${name}` : '';
 
-  if (time < 3 && time >= 22) {
+  if (time < 3 || time >= 22) {
     return `“Good night${newName}!”`;
   }
   if (3 <= time && time < 12) {
@@ -20,10 +20,8 @@ const greet = (name) => {
   }
 };
 
-export const Greeting = () => {
-
-  return (<div className='greeting'>
-      {greet('Sveta') }
+export const Greeting = (props) => (
+  <div className='greeting'>
+      {greet(props.name)}
     </div>
-  );
-};
+);

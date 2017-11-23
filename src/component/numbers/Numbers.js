@@ -6,18 +6,14 @@ const numList = (from, to, type) => {
   let arr = [];
 
   for (let i = from; i <= to; i++) {
-    if (type) {
-      if (type == 'odd') {
-        if (i % 2 === 0) {
-          arr.push(i);
-        }
-      }
-      if (type == 'even') {
-        if (i % 2 !== 0) {
-          arr.push(i);
-        }
-      }
-    } else {
+
+    if (type == 'odd' && i % 2 === 0) {
+      arr.push(i);
+    }
+    if (type == 'even' && i % 2 !== 0) {
+      arr.push(i);
+    }
+    if (type == 'default') {
       arr.push(i);
     }
   }
@@ -35,11 +31,12 @@ const numList = (from, to, type) => {
 };
 
 export const Numbers = (props) => {
-  let {from, to} = props.data;
+  const type = props.even ? 'even' : props.odd ? 'odd': 'default';
+  const {from, to } = props;
 
   return (
     <div className='numbers'>
-      {numList(from, to, props.type)}
+      {numList(from, to, type)}
     </div>
   );
 };

@@ -2,10 +2,32 @@ import React from 'react';
 
 import { Aside } from '../aside/Aside';
 import { Content } from '../content/Content';
-import { Greeting } from '../greeting/Greeting';
-import { Numbers } from '../numbers/Numbers';
 
 import './main.scss';
+
+const Comps = {
+  list() {
+    return <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>;
+  },
+  message(props) {
+    return <mark>{props.text || 'Hello!'}</mark>
+  }
+};
+
+// const MainComp = () => (
+//   <div>
+//     <Comps.list/>
+//     <Comps.message text='Test me'/>
+//   </div>
+// );
+
+const Section = (props) => {
+  const Comp = Comps[props.element];
+  return <Comp />;
+};
 
 export const Main = () => {
 
@@ -13,18 +35,9 @@ export const Main = () => {
     <div className='wrapper'>
       <Aside/>
       <Content/>
-      <Greeting/>
-      <Numbers
-        data = {
-          {
-            from: 5,
-            to:7
-          }
-        }
-        type='even'
-      />
+      <Section element='list'/>
+      <Section element='message'/>
     </div>
-  )
-    ;
+  );
 };
 
