@@ -20,8 +20,8 @@ const greet = (name) => {
   }
 };
 
-export const Greeting = (props) => (
+export const Greeting = ({name}) => (
   <div className='greeting'>
-      {greet(props.name)}
+      {greet(name)}
     </div>
 );
