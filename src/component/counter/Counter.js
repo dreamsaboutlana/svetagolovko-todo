@@ -4,13 +4,7 @@ export class Counter extends Component {
   constructor() {
     super();
     this.counter = 0;
-    // this.clickHandler = this.clickHandler.bind(this);
   }
-
-  // clickHandler() {
-  //   this.counter++;
-  //   console.log(this.counter);
-  // }
 
   clickHandler = (e) => {
     this.counter++;
