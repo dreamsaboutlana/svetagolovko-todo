@@ -8,21 +8,23 @@ const items = [
   { label: 'About', id:'assq'},
   { label: 'Contacts', id:'assy'}
 ];
-export const Navigation = () =>{
+export const Navigation = ({islogin}) => (
+  <nav className='nav'>
+    <ul>
+      {/*{*/}
+        {/*props.items.map( (item, index) => (*/}
+            {/*<li key={index, item.id}>*/}
+              {/*<a href={`/${item.label.toLowerCase()}`}>{item.label}</a>*/}
+            {/*</li>*/}
+          {/*)*/}
+        {/*)*/}
+      {/*}*/}
 
-  return (
-    <nav className='nav'>
-      <ul>
-        {
-          items.map( (item) => (
-              <li key={item.id}>
-                <a href={`/${item.label.toLowerCase()}`}>{item.label}</a>
-              </li>
-            )
-          )
-        }
-      </ul>
-    </nav>
-  );
-};
+      <li><a href="home">Home</a></li>
+
+      { islogin && <li><a href="logout">Logout</a></li> }
+    </ul>
+  </nav>
+);
+
 
