@@ -8,7 +8,6 @@ export class User extends Component {
     this.usersList = this.props.usersList;
   }
   render() {
-    console.log(this.usersList);
     return (
       this.usersList.map((elem, index) => (
         <li key={index}>
