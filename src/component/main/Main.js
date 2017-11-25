@@ -7,10 +7,12 @@ import './main.scss';
 
 const Comps = {
   list() {
-    return <ul>
-      <li>1</li>
-      <li>2</li>
-    </ul>;
+    return (
+      <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    );
   },
   message(props) {
     return <mark>{props.text || 'Hello!'}</mark>

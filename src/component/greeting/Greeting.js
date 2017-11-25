@@ -7,16 +7,16 @@ const greet = (name) => {
   const newName = name ? `, ${name}` : '';
 
   if (time < 3 || time >= 22) {
-    return `“Good night${newName}!”`;
+    return `Good night${newName}!`;
   }
   if (3 <= time && time < 12) {
-    return `“Good morning${newName}!”`;
+    return `Good morning${newName}!`;
   }
   if (12 <= time && time < 18) {
-    return `“Good afternoon${newName}!”`;
+    return `Good afternoon${newName}!`;
   }
   if (18 <= time && time < 22) {
-    return `“Good evening${newName}!”`;
+    return `Good evening${newName}!`;
   }
 };
 
