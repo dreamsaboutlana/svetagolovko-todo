@@ -13,6 +13,6 @@ export class UsersList extends Component {
       <ul>
         <User usersList = {this.usersList}/>
       </ul>
-    )
+    );
   }
 }

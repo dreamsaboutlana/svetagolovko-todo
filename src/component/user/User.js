@@ -15,7 +15,7 @@ export class User extends Component {
         </li>
         )
       )
-    )
+    );
   }
 }
 
