@@ -4,6 +4,7 @@ import { Greeting } from '../greeting/Greeting';
 import { Numbers } from '../numbers/Numbers';
 import { Counter } from '../counter/Counter';
 import { UsersList } from '../usersList/UsersList';
+import { Accordion } from "../accordion/Accordion";
 
 import './content.scss'
 
@@ -27,6 +28,7 @@ export class Content extends Component {
           ]
         }
       />
+       <Accordion />
     </main>
    );
   }

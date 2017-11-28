@@ -7,7 +7,7 @@ export const Button = (props) => {
 
   return (
     <button
-      className={active + ' btn'}
+      className={active || '' + ' btn'}
       onClick={onClick}>{title}</button>
   );
 };
