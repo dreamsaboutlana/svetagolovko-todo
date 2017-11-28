@@ -1,0 +1,12 @@
+@import '../../variables';
+button {
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 10px;
+  color: #fff;
+  background: greenyellow;
+  font-size: 100%;
+  &.active {
+    background: darkred;
+  }
+}

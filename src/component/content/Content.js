@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
 import { Greeting } from '../greeting/Greeting';
 import { Numbers } from '../numbers/Numbers';
 import { Counter } from '../counter/Counter';
 import { UsersList } from '../usersList/UsersList';
 
 import './content.scss'
-
-const getProps = text => ({
-  valid: true,
-  text: text || 'Good boy!'
-});
 
 export class Content extends Component {
   constructor(props){

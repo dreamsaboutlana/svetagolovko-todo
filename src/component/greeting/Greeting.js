@@ -22,6 +22,6 @@ const greet = (name) => {
 
 export const Greeting = ({name}) => (
   <div className='greeting'>
-      {greet(name)}
+      { greet(name) }
     </div>
 );
