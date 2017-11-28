@@ -1,45 +1,54 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import { Aside } from '../aside/Aside';
 import { Content } from '../content/Content';
+import { List } from "./List";
 
 import './main.scss';
 
-const Comps = {
-  list() {
-    return (
-      <ul>
-        <li>1</li>
-        <li>2</li>
-    </ul>
-    );
-  },
-  message(props) {
-    return <mark>{props.text || 'Hello!'}</mark>
+export class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      loading: false
+    };
   }
-};
 
-// const MainComp = () => (
-//   <div>
-//     <Comps.list/>
-//     <Comps.message text='Test me'/>
-//   </div>
-// );
+  getUsers = () => {
+    this.setState({
+      loading: true,
+      users: []
+    });
 
-const Section = (props) => {
-  const Comp = Comps[props.element];
-  return <Comp />;
-};
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({users, loading: false}));
+  };
 
-export const Main = () => {
+  showUserInfo = (user) => {
+    alert(`${user.email}: ${user.phone}`);
+  };
 
-  return (
-    <div className='wrapper'>
-      <Aside/>
-      <Content/>
-      <Section element='list'/>
-      <Section element='message'/>
-    </div>
-  );
-};
+  render() {
+    const {users, loading} = this.state;
+    return (
+      <div className='wrapper'>
+        <Aside/>
+        <Content/>
+
+        <button onClick={this.getUsers}>
+          Get users
+        </button>
+
+        <List
+          items={users}
+          clickHandler={this.showUserInfo}
+        />
+
+        {loading && <span key='3'> Loading...</span>}
+      </div>
+    );
+  }
+}
 
