@@ -1,7 +1,8 @@
 export const Post = ({ items }) => (
-  <ul>{items.map(post =>
+  <ul className="postsList">{items.map(post =>
     <li key={post.id}>
-      {post.title}
+      <h4>{post.title}</h4>
+      <p>{post.body}</p>
     </li>)}
   </ul>
 );

@@ -8,8 +8,15 @@
   div{
     width: 100%;
   }
-  .userList{
+  .listWrap{
     display: flex;
     flex-direction: row;
+  }
+  .usersList{
+    width: 30%;
+  }
+  .postsList{
+    width: 70%;
+
   }
 }
