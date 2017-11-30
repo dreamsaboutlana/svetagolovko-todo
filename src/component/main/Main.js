@@ -1,7 +1,8 @@
 import { Aside } from '../aside/Aside';
+import { Position } from './Positon';
 import { Content } from '../content/Content';
 import { List } from './List';
-import { Position } from './Positon';
+import { Post } from './Post';
 
 import './main.scss';
 
@@ -10,7 +11,8 @@ export class Main extends React.Component {
     super(props);
     this.state = {
       users: [],
-      loading: false
+      loading: false,
+      posts: []
     };
   }
 
@@ -25,26 +27,44 @@ export class Main extends React.Component {
       .then(users => this.setState({ users, loading: false }));
   };
 
+  getPost = ({ id }) => {
+    this.setState({
+      loading: true,
+      posts: []
+    });
+    fetch('https://jsonplaceholder.typicode.com/posts?userId=' + id)
+      .then(response => response.json())
+      .then(posts => this.setState({ posts, loading: false }))
+  };
+
   showUserInfo = (user) => {
-    console.log(`${user.email}: ${user.phone}`);
+    this.getPost(user);
   };
 
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, posts } = this.state;
     return (
       <div className="wrapper">
         <Aside />
         <Content />
-        <div>
-          <button onClick={this.getUsers}>
-            Get users
-          </button>
+        <button onClick={this.getUsers}>
+          Get users
+        </button>
+        <div className="userList">
 
           <List
             items={users}
             clickHandler={this.showUserInfo}
           />
           {loading && <span key="3">Loading...</span>}
+          {posts.length > 1 &&
+            <Post
+              items={posts}
+            />
+
+
+          }
+
         </div>
 
         <Position />

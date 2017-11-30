@@ -6,13 +6,17 @@ export class Position extends React.Component {
     this.state = {};
   }
 
-  getLocation = () => {
-    // return navigator.geolocation.getCurrentPosition(console.log);
-  };
+  getLocation = () => navigator.geolocation.getCurrentPosition(this.showPosition);
 
   showPosition = (position) => {
-    const { latitude, longitude } = position.coords;
-    return { latitude, longitude };
+    if (position) {
+      const { latitude, longitude } = position.coords;
+      this.setState({
+        position: true,
+        latitude,
+        longitude
+      });
+    }
   };
 
   render() {
@@ -22,8 +26,11 @@ export class Position extends React.Component {
           title="Get your coordinates"
           onClick={this.getLocation}
         />
-        {/* <div className="location"></div> */}
-        {/* <div className="contentLocation"></div> */}
+        {this.state.position &&
+        <div className="contentLocation">
+          Latitude {this.state.latitude}, Longitude {this.state.longitude}
+        </div>
+        }
       </div>
     );
   }
