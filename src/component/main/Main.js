@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
-
 import { Aside } from '../aside/Aside';
 import { Content } from '../content/Content';
-import { List } from "./List";
+import { List } from './List';
+import { Position } from './Positon';
 
 import './main.scss';
 
-export class Main extends Component {
+export class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,30 +22,33 @@ export class Main extends Component {
 
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(users => this.setState({users, loading: false}));
+      .then(users => this.setState({ users, loading: false }));
   };
 
   showUserInfo = (user) => {
-    alert(`${user.email}: ${user.phone}`);
+    console.log(`${user.email}: ${user.phone}`);
   };
 
   render() {
-    const {users, loading} = this.state;
+    const { users, loading } = this.state;
     return (
-      <div className='wrapper'>
-        <Aside/>
-        <Content/>
+      <div className="wrapper">
+        <Aside />
+        <Content />
+        <div>
+          <button onClick={this.getUsers}>
+            Get users
+          </button>
 
-        <button onClick={this.getUsers}>
-          Get users
-        </button>
+          <List
+            items={users}
+            clickHandler={this.showUserInfo}
+          />
+          {loading && <span key="3">Loading...</span>}
+        </div>
 
-        <List
-          items={users}
-          clickHandler={this.showUserInfo}
-        />
+        <Position />
 
-        {loading && <span key='3'> Loading...</span>}
       </div>
     );
   }

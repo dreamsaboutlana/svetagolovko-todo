@@ -1,16 +1,14 @@
-import React, {Component} from 'react';
-
-export class Counter extends Component {
+export class Counter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {counter: 0};
+    this.state = { counter: 0 };
   }
 
-  clickHandler = (e) => {
+  clickHandler = () => {
     // this.setState((prevState) => ({
     //   counter: prevState.counter + 1
     // }))
-    this.setState({counter:this.state.counter + 1} );
+    this.setState({ counter: this.state.counter + 1 });
   };
 
   render() {

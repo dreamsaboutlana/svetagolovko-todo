@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './statusMessages.scss';
 
 const ErrorMessage = props =>(

@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 
-import { Button } from "../button/Button";
+import { Button } from '../button/Button';
 
-import './aside.scss'
+import './aside.scss';
 
 export class Aside extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       active: false
-    }
+    };
   }
 
   changeClass = () => {
-    this.setState( { active : !this.state.active } );
+    this.setState({ active: !this.state.active });
   };
 
   render() {
     return (
-      <aside className='aside'>
+      <aside className="aside">
+
         <Button
           title={'I\'m smart button'}
-          active={ this.state.active ? "active" : ''}
-          onClick={ this.changeClass }
+          active={this.state.active ? 'active' : ''}
+          onClick={this.changeClass}
         />
+
       </aside>
     );
   }
