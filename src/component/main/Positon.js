@@ -1,5 +1,3 @@
-import { Button } from '../button/Button';
-
 export class Position extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +20,10 @@ export class Position extends React.Component {
   render() {
     return (
       <div>
-        <Button
-          title="Get your coordinates"
-          onClick={this.getLocation}
-        />
+        <button onClick={this.getLocation}>
+          Get your coordinates
+        </button>
+
         {this.state.position &&
         <div className="contentLocation">
           Latitude {this.state.latitude}, Longitude {this.state.longitude}

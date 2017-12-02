@@ -5,9 +5,6 @@ export class Counter extends React.Component {
   }
 
   clickHandler = () => {
-    // this.setState((prevState) => ({
-    //   counter: prevState.counter + 1
-    // }))
     this.setState({ counter: this.state.counter + 1 });
   };
 
