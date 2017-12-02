@@ -1,16 +1,29 @@
-import React from 'react';
-
 import './button.scss';
 
-export const Button = (props) => {
-  const { active, onClick, title } = props;
-  const clName = active || '';
-  return (
-    <button
-      className={clName}
-      onClick={onClick}
-    >
-      {title}
-    </button>
-  );
+export class Button extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      className: ''
+    };
+  }
+
+  changeClass = () => {
+    if (this.state.className === '') {
+      this.setState({ className: 'active' });
+    } else {
+      this.setState({ className: '' })
+    }
+  };
+
+  render() {
+    const { title } = this.props;
+    return (
+      <button
+        className={this.state.className}
+        onClick={this.changeClass}>
+        {title}
+      </button>
+    );
+  }
 };

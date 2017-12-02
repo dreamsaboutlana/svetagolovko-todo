@@ -50,7 +50,7 @@ export class Main extends React.Component {
         <button onClick={this.getUsers}>
           Get users
         </button>
-        <div className="userList">
+        <div className="listWrap">
 
           <List
             items={users}
@@ -61,10 +61,7 @@ export class Main extends React.Component {
             <Post
               items={posts}
             />
-
-
           }
-
         </div>
 
         <Position />
