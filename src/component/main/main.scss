@@ -5,4 +5,18 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding: $common-paddings;
+  div{
+    width: 100%;
+  }
+  .listWrap{
+    display: flex;
+    flex-direction: row;
+  }
+  .usersList{
+    width: 30%;
+  }
+  .postsList{
+    width: 70%;
+
+  }
 }

@@ -1,7 +1,5 @@
-import React from 'react';
-
-export const List = ({items, clickHandler}) => (
-  <ul>{items.map(user =>
+export const List = ({ items, clickHandler }) => (
+  <ul className="usersList">{items.map(user =>
     <li
       key={user.id}
       onClick={() => clickHandler(user)}

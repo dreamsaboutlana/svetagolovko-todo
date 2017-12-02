@@ -1,5 +1,19 @@
-import React from 'react';
+import { Button } from '../button/Button';
 
-import './aside.scss'
+import './aside.scss';
 
-export const Aside = () => <aside className='aside'>Aside</aside>;
+export class Aside extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <aside className="aside">
+        <Button
+          title={'I\'m smart button'}
+        />
+      </aside>
+    );
+  }
+}

@@ -1,0 +1,8 @@
+.accordion_content{
+  display: none;
+}
+.wrap_accordion{
+  .accordion_content{
+    display: block;
+  }
+}

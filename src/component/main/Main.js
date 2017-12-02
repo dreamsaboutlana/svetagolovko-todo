@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
-
 import { Aside } from '../aside/Aside';
+import { Position } from './Positon';
 import { Content } from '../content/Content';
-import { List } from "./List";
+import { List } from './List';
+import { Post } from './Post';
 
 import './main.scss';
 
-export class Main extends Component {
+export class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      loading: false
+      loading: false,
+      posts: []
     };
   }
 
@@ -23,30 +24,48 @@ export class Main extends Component {
 
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(users => this.setState({users, loading: false}));
+      .then(users => this.setState({ users, loading: false }));
+  };
+
+  getPost = ({ id }) => {
+    this.setState({
+      loading: true,
+      posts: []
+    });
+    fetch('https://jsonplaceholder.typicode.com/posts?userId=' + id)
+      .then(response => response.json())
+      .then(posts => this.setState({ posts, loading: false }))
   };
 
   showUserInfo = (user) => {
-    alert(`${user.email}: ${user.phone}`);
+    this.getPost(user);
   };
 
   render() {
-    const {users, loading} = this.state;
+    const { users, loading, posts } = this.state;
     return (
-      <div className='wrapper'>
-        <Aside/>
-        <Content/>
-
+      <div className="wrapper">
+        <Aside />
+        <Content />
         <button onClick={this.getUsers}>
           Get users
         </button>
+        <div className="listWrap">
 
-        <List
-          items={users}
-          clickHandler={this.showUserInfo}
-        />
+          <List
+            items={users}
+            clickHandler={this.showUserInfo}
+          />
+          {loading && <span key="3">Loading...</span>}
+          {posts.length > 1 &&
+            <Post
+              items={posts}
+            />
+          }
+        </div>
 
-        {loading && <span key='3'> Loading...</span>}
+        <Position />
+
       </div>
     );
   }
