@@ -1,0 +1,23 @@
+.wrap_mount{
+  width: 100%;
+}
+code {
+  padding: 15px;
+  margin: 15px 0;
+  background: #ccc;
+  display: flex;
+  justify-content: space-between;
+  &.green{
+    background-color: green;
+  }
+  &.blue{
+    background-color: blue;
+  }
+  &.cyane{
+    background-color: #0ff;
+  }
+}
+
+.count-text {
+  padding: 0 10px;
+}

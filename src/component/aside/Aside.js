@@ -7,6 +7,5 @@ export const Aside = () => (
     <Button
       title={'I\'m smart button'}
     />
-
   </aside>
 );

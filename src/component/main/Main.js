@@ -6,6 +6,7 @@ import { Post } from './Post';
 import { Tabs } from '../TabsNav/Tabs';
 import { Greeting } from '../greeting/Greeting';
 import { Clock } from '../clock/Clock';
+import { Mount } from '../Mount/Mount';
 
 import './main.scss';
 
@@ -80,6 +81,7 @@ export class Main extends Component {
 
         <Tabs tabs={tabs} />
 
+        <Mount />
       </div>
     );
   }
