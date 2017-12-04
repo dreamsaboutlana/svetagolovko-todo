@@ -4,6 +4,8 @@ import { Content } from '../content/Content';
 import { List } from './List';
 import { Post } from './Post';
 import { Tabs } from '../TabsNav/Tabs';
+import { Greeting } from '../greeting/Greeting';
+import { Clock } from '../clock/Clock';
 
 import './main.scss';
 
@@ -12,14 +14,6 @@ const tabs = [
   { id: 1, title: 'Tab 2', content: 'Another content' },
   { id: 2, title: 'Tab 3', content: 'Third text' }
 ];
-
-
-const Article = ({ title, children }) => (
-  <article>
-    <h1>{title}</h1>
-    {children}
-  </article>
-);
 
 export class Main extends Component {
   constructor(props) {
@@ -60,6 +54,9 @@ export class Main extends Component {
     const { users, loading, posts } = this.state;
     return (
       <div className="wrapper">
+
+        <Greeting name="Sveta" />
+        <Clock />
         <Aside />
         <Content />
         <button onClick={this.getUsers}>
@@ -83,11 +80,6 @@ export class Main extends Component {
 
         <Tabs tabs={tabs} />
 
-        <Article title="New article">
-          <p>Hello!!</p>
-          <p>Ola!!</p>
-          <p>Hi!!</p>
-        </Article>
       </div>
     );
   }
