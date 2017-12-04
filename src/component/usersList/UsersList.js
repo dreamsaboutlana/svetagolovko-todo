@@ -2,7 +2,7 @@ import { User } from '../user/User';
 
 import './usersList.scss';
 
-export class UsersList extends React.Component {
+export class UsersList extends Component {
   constructor(props) {
     super(props);
     this.usersList = this.props.users;
