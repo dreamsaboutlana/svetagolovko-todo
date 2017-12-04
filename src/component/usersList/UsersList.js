@@ -16,3 +16,10 @@ export class UsersList extends Component {
     );
   }
 }
+
+UsersList.defaultProps = {
+  users: []
+};
+UsersList.propsType = {
+  users: PropTypes.array
+};

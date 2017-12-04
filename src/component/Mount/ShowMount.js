@@ -27,3 +27,12 @@ export class ShowMount extends Component {
     );
   }
 }
+
+ShowMount.defaultProps = {
+  color: ''
+
+};
+ShowMount.propsType = {
+  color: PropTypes.string,
+  code: PropTypes.number.isRequired
+};

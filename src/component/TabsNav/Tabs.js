@@ -33,3 +33,10 @@ export class Tabs extends Component {
     );
   }
 }
+
+Tabs.defaultProps = {
+  tabs: []
+};
+Tabs.propsType = {
+  tabs: PropTypes.array
+};

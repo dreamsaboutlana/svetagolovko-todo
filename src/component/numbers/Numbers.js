@@ -44,3 +44,8 @@ export const Numbers = (props) => {
     </div>
   );
 };
+
+Numbers.propsType = {
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired
+};

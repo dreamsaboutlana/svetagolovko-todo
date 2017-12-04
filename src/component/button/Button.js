@@ -28,3 +28,10 @@ export class Button extends Component {
     );
   }
 }
+
+Button.defaultProps = {
+  title: ''
+};
+Button.propsType = {
+  title: PropTypes.string
+};
