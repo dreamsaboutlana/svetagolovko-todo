@@ -6,14 +6,12 @@ export const TabNav = ({ list, select }) => {
 
   return (
     <nav className="nav-tab">
-      <ul>{list.map((el, index) =>
-        (<li key={el.id}>
-          <a href="#"
-             onClick={e => onClick(e, index)}>
+      <ul className="nav">{list.map((el, index) => (
+        <li key={el.id}>
+          <button onClick={e => onClick(e, index)}>
             {el.title}
-          </a>
-        </li>)
-      )}
+          </button>
+        </li>))}
       </ul>
     </nav>);
 };

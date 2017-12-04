@@ -1,11 +1,12 @@
-import { TabNav } from "./TabNav";
-import { TabContent } from "./TabContent";
+import { TabNav } from './TabNav';
+import { TabContent } from './TabContent';
 
+import './tabs.scss';
 
 export class Tabs extends Component {
   constructor(props) {
     super(props);
-    this.state = { content: '', id: 0 };
+    this.state = { content: '' };
   }
 
   componentDidMount() {
@@ -15,7 +16,6 @@ export class Tabs extends Component {
   clickTab = (id) => {
     this.setState({
       content: this.props.tabs[id].content,
-      id
     });
   };
 
@@ -26,7 +26,8 @@ export class Tabs extends Component {
           list={
             this.props.tabs.map(({ id, title }) => ({ id, title }))
           }
-          select={this.clickTab} />
+          select={this.clickTab}
+        />
         <TabContent content={this.state.content} />
       </section>
     );

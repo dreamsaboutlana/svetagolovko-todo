@@ -3,7 +3,7 @@ import { Position } from './Positon';
 import { Content } from '../content/Content';
 import { List } from './List';
 import { Post } from './Post';
-import { Tabs } from "../TabsNav/Tabs";
+import { Tabs } from '../TabsNav/Tabs';
 
 import './main.scss';
 
@@ -18,7 +18,8 @@ const Article = ({ title, children }) => (
   <article>
     <h1>{title}</h1>
     {children}
-  </article> );
+  </article>
+);
 
 export class Main extends Component {
   constructor(props) {
@@ -46,9 +47,9 @@ export class Main extends Component {
       loading: true,
       posts: []
     });
-    fetch('https://jsonplaceholder.typicode.com/posts?userId=' + id)
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then(response => response.json())
-      .then(posts => this.setState({ posts, loading: false }))
+      .then(posts => this.setState({ posts, loading: false }));
   };
 
   showUserInfo = (user) => {

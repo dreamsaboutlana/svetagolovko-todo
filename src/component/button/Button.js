@@ -21,9 +21,10 @@ export class Button extends Component {
     return (
       <button
         className={this.state.className}
-        onClick={this.changeClass}>
+        onClick={this.changeClass}
+      >
         {title}
       </button>
     );
   }
-};
+}
