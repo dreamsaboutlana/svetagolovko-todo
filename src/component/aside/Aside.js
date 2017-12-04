@@ -1,19 +1,14 @@
 import { Button } from '../button/Button';
+import { StatusMessage } from "../statusMessage/StatusMessage";
 
 import './aside.scss';
 
-export class Aside extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export const Aside = () => (
+  <aside className="aside">
+    <Button
+      title={'I\'m smart button'}
+    />
+    <StatusMessage />
 
-  render() {
-    return (
-      <aside className="aside">
-        <Button
-          title={'I\'m smart button'}
-        />
-      </aside>
-    );
-  }
-}
+  </aside>
+);

@@ -1,6 +1,6 @@
 import './user.scss';
 
-export class User extends React.Component {
+export class User extends Component {
   constructor(props) {
     super(props);
     this.usersList = this.props.usersList;

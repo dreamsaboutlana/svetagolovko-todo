@@ -23,8 +23,8 @@
   "homepage": "https://github.com/dreamsaboutlana/svetagolovko-todo#readme",
   "dependencies": {
     "@types/react": "^16.0.25",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "webpack-dev-server": "^2.9.4"
   },
   "devDependencies": {
