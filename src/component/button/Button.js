@@ -1,6 +1,6 @@
 import './button.scss';
 
-export class Button extends React.Component {
+export class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ export class Button extends React.Component {
     if (this.state.className === '') {
       this.setState({ className: 'active' });
     } else {
-      this.setState({ className: '' })
+      this.setState({ className: '' });
     }
   };
 
@@ -21,9 +21,10 @@ export class Button extends React.Component {
     return (
       <button
         className={this.state.className}
-        onClick={this.changeClass}>
+        onClick={this.changeClass}
+      >
         {title}
       </button>
     );
   }
-};
+}

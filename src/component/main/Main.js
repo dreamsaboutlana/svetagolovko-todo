@@ -3,10 +3,20 @@ import { Position } from './Positon';
 import { Content } from '../content/Content';
 import { List } from './List';
 import { Post } from './Post';
+import { Tabs } from '../TabsNav/Tabs';
+import { Greeting } from '../greeting/Greeting';
+import { Clock } from '../clock/Clock';
+import { Mount } from '../Mount/Mount';
 
 import './main.scss';
 
-export class Main extends React.Component {
+const tabs = [
+  { id: 0, title: 'Tab 1', content: 'Some text is here' },
+  { id: 1, title: 'Tab 2', content: 'Another content' },
+  { id: 2, title: 'Tab 3', content: 'Third text' }
+];
+
+export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,9 +42,9 @@ export class Main extends React.Component {
       loading: true,
       posts: []
     });
-    fetch('https://jsonplaceholder.typicode.com/posts?userId=' + id)
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then(response => response.json())
-      .then(posts => this.setState({ posts, loading: false }))
+      .then(posts => this.setState({ posts, loading: false }));
   };
 
   showUserInfo = (user) => {
@@ -45,6 +55,9 @@ export class Main extends React.Component {
     const { users, loading, posts } = this.state;
     return (
       <div className="wrapper">
+
+        <Greeting name="Sveta" />
+        <Clock />
         <Aside />
         <Content />
         <button onClick={this.getUsers}>
@@ -58,14 +71,17 @@ export class Main extends React.Component {
           />
           {loading && <span key="3">Loading...</span>}
           {posts.length > 1 &&
-            <Post
-              items={posts}
-            />
+          <Post
+            items={posts}
+          />
           }
         </div>
 
         <Position />
 
+        <Tabs tabs={tabs} />
+
+        <Mount />
       </div>
     );
   }

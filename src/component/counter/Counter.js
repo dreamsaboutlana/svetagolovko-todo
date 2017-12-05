@@ -1,4 +1,4 @@
-export class Counter extends React.Component {
+export class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = { counter: 0 };

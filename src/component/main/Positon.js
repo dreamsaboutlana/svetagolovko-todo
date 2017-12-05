@@ -1,4 +1,4 @@
-export class Position extends React.Component {
+export class Position extends Component {
   constructor(props) {
     super(props);
     this.state = {};
