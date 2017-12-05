@@ -8,9 +8,10 @@ export class Clock extends Component {
   }
 
   myTimer = () => {
+    const now = new Date();
     this.setState({
-      time: new Date().toLocaleTimeString(),
-      date: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}`
+      time: now.toLocaleTimeString(),
+      date: `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`
     });
   };
 
