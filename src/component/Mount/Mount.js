@@ -12,28 +12,27 @@ export class Mount extends Component {
     };
   }
 
-  addBackgroundColor(counter) {
-    const newcounter = counter + 1;
-    if (newcounter % 3 === 0 && newcounter % 5 === 0) {
-      this.setState({ color: 'cyane' });
-    } else if (newcounter % 3 === 0) {
-      this.setState({ color: 'green' });
-    } else if (newcounter % 5 === 0) {
-      this.setState({ color: 'blue' });
+  addState = () => {
+    const counter = this.state.counter + 1;
+    let color = '';
+
+    if (counter % 3 === 0 && counter % 5 === 0) {
+      color = 'cyane';
+    } else if (counter % 3 === 0) {
+      color = 'green';
+    } else if (counter % 5 === 0) {
+      color = 'blue';
     } else {
-      this.setState({ color: '' });
+      color = '';
     }
-  }
+    this.setState({ counter, color });
+  };
 
   render() {
     const { counter, show, color } = this.state;
     return (
       <div className="wrap_mount">
-        <button onClick={() => {
-          this.setState({ counter: counter + 1 });
-          this.addBackgroundColor(this.state.counter);
-        }}
-        >
+        <button onClick={this.addState}>
           Inc
         </button>
         <span className="count-text">{this.state.counter}</span>

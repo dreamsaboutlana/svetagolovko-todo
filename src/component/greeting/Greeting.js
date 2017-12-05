@@ -23,3 +23,10 @@ export const Greeting = ({ name }) => (
     {greet(name)}
   </div>
 );
+
+Greeting.defaultProps = {
+  name: 'User'
+};
+Greeting.propTypes = {
+  name: PropTypes.string
+};

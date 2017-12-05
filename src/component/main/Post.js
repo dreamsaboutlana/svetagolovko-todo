@@ -6,3 +6,10 @@ export const Post = ({ items }) => (
     </li>))}
   </ul>
 );
+
+Post.defaultProps = {
+  items: []
+};
+Post.propTypes = {
+  items: PropTypes.array
+};
