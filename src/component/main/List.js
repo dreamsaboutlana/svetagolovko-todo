@@ -8,3 +8,11 @@ export const List = ({ items, clickHandler }) => (
     </li>))}
   </ul>
 );
+List.defaultProps = {
+  items: [],
+  clickHandler: _ => _
+};
+List.propTypes = {
+  items: PropTypes.array,
+  clickHandler: PropTypes.func
+};

@@ -13,3 +13,9 @@ export const Navigation = ({ list }) => (
     </ul>
   </nav>
 );
+Navigation.defaultProps = {
+  list: []
+};
+Navigation.propsType = {
+  list: PropTypes.array.isRequired
+};

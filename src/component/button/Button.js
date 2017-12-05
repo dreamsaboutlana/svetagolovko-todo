@@ -4,23 +4,20 @@ export class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      className: ''
+      className: false
     };
   }
 
   changeClass = () => {
-    if (this.state.className === '') {
-      this.setState({ className: 'active' });
-    } else {
-      this.setState({ className: '' });
-    }
+    this.setState({ className: !this.state.className });
   };
 
   render() {
     const { title } = this.props;
+    const clName = this.state.className ? 'active' : '';
     return (
       <button
-        className={this.state.className}
+        className={clName}
         onClick={this.changeClass}
       >
         {title}
@@ -28,3 +25,10 @@ export class Button extends Component {
     );
   }
 }
+
+Button.defaultProps = {
+  title: ''
+};
+Button.propsType = {
+  title: PropTypes.string
+};
