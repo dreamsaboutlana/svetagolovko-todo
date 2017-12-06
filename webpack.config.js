@@ -34,6 +34,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
 
+  resolve: {
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules')
+    ]
+  },
+
   module: {
     rules: [
       {
@@ -57,8 +64,8 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: textPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader", "sass-loader"]
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
         })
 
       }
