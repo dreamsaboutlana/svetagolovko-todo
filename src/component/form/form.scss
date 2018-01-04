@@ -1,0 +1,38 @@
+input.error {
+  border: 1px solid darkred;
+  border-radius: 5px;
+}
+
+input.correct {
+  border: 1px solid greenyellow;
+  border-radius: 5px;
+}
+
+form {
+  input {
+    width: 100%;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  &.user {
+    width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    input {
+      width: 100%;
+      &[type='submit'] {
+        border: none;
+        color: #fff;
+        background: dodgerblue;
+        text-transform: uppercase;
+
+        &:hover {
+          background: lighten(dodgerblue, 30%);
+        }
+      }
+    }
+  }
+}

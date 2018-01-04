@@ -3,8 +3,11 @@ const webpack = require('webpack');
 const htmlPlugin = require('html-webpack-plugin');
 const textPlugin = require('extract-text-webpack-plugin');
 const args = require('yargs').argv;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 let styleLoader = ['style-loader', 'css-loader', 'sass-loader'];
+
+const images = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
 
 const plugins = [
   new htmlPlugin({
@@ -13,14 +16,18 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
   new webpack.HotModuleReplacementPlugin(),
   new textPlugin({
-    filename: 'main-[contenthash].css',
+    filename: 'main.css',
     allChunks: true
   }),
   new webpack.ProvidePlugin({
     React: 'react',
     Component: ['react', 'Component'],
     PropTypes: 'prop-types'
-  })
+  }),
+  new CopyWebpackPlugin([
+    ...images.map(ext => ({ from: `**/*/*.${ext}`, to: 'images/[name].[ext]' })),
+    { from: 'assets', to: 'assets' }
+  ])
 ];
 
 module.exports = {
@@ -31,7 +38,8 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
 
   resolve: {
@@ -43,12 +51,15 @@ module.exports = {
 
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      //   options: {
+      //     emitWarning: true
+      //   }
+      // },
       {
         test: /\.js$/,
         exclude: path.resolve(__dirname, 'node_modules'),
@@ -79,6 +90,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    port: 9000
+    port: 9001,
+    historyApiFallback: true
   }
 };

@@ -1,8 +1,38 @@
+.tabs{
+  width: 1024px;
+  margin: 0 auto;
+}
 .nav-tab {
-  .nav {
-   list-style: none;
-    li{
-      display: inline-block;
+  list-style: none;
+  padding-left: 0;
+  ul {
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    button {
+      min-width: 70px;
+      height: 40px;
+      border: none;
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+    &.active {
+      button {
+        background-color: cornflowerblue;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.tab-content {
+  li {
+    color: grey;
+    a {
+      color: grey;
+      font-size: 18px;
+      text-decoration: none;
     }
   }
 }

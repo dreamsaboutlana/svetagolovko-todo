@@ -1,21 +1,15 @@
 @import "../../variables";
 
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   padding: $common-paddings;
-  div{
-    width: 100%;
-  }
-  .listWrap{
+  .listWrap {
     display: flex;
     flex-direction: row;
   }
-  .usersList{
+  .usersList {
     width: 30%;
   }
-  .postsList{
+  .postsList {
     width: 70%;
 
   }

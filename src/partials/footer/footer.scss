@@ -1,9 +1,10 @@
 @import "../../variables";
 
 footer {
-  width: $persent;
+  position: absolute;
+  right: 0;
   bottom: 0;
-  padding: $common-paddings;
-  background: $footer-bg;
-  text-align: center;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
 }

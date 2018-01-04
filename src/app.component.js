@@ -1,16 +1,39 @@
 import { Header } from './partials/header';
-import { Main } from './partials/main';
 import { Footer } from './partials/footer';
+import { Pages } from './Pages/Pages';
 
 import './app.scss';
 
-export const App = (
-  <div className="inner-app">
-    <Header />
+export class App extends Component {
+  constructor(props) {
+    super(props);
 
-    <Main />
+    this.state = {
+      login: false
+    }
+  }
 
-    <Footer />
+  setLoginState = (login) => {
+    this.setState({ login });
+  }
 
-  </div>
-);
+  render() {
+    const { login } = this.state;
+
+    return (
+      <div className=" inner-app wrapper">
+        <Header
+          login={login}
+          setLoginState={this.setLoginState}
+        />
+
+        <Pages
+          login={login}
+          setLoginState={this.setLoginState}
+        />
+
+        <Footer />
+      </div>
+    );
+  }
+}

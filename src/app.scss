@@ -2,14 +2,34 @@
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 
 body {
-  background: $main-bg;
+  //background-image: url("assets/bg.png");
   margin: 0;
-  padding: 0;
-  max-height: $persent;
-  height: 100vh;
+  padding: 0 0 6rem;
+  position: relative;
+  min-height: 100%;
+  background: rgba(78, 149, 196, 1);
+  background: -moz-linear-gradient(-45deg, rgba(78, 149, 196, 1) 0%, rgba(78, 149, 196, 0.97) 7%, rgba(166, 189, 207, 0.6) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(78, 149, 196, 1) 0%, rgba(78, 149, 196, 0.97) 7%, rgba(166, 189, 207, 0.6) 100%);
+  background: -o-linear-gradient(-45deg, rgba(78, 149, 196, 1) 0%, rgba(78, 149, 196, 0.97) 7%, rgba(166, 189, 207, 0.6) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(78, 149, 196, 1) 0%, rgba(78, 149, 196, 0.97) 7%, rgba(166, 189, 207, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(78, 149, 196, 1) 0%, rgba(78, 149, 196, 0.97) 7%, rgba(166, 189, 207, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e95c4', endColorstr='#a6bdcf', GradientType=1);
+
   #app,
   .inner-app {
     height: $persent;

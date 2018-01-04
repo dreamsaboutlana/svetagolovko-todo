@@ -1,21 +1,30 @@
+import { NavLink } from 'react-router-dom';
+
 import './navigation.scss';
 
-export const Navigation = ({ list }) => (
+const items = [
+  { label: 'Home', id: 'asfd445asdf' },
+  { label: 'Tasks', id: 'dfsdf54d5sfd' }
+];
+
+export const Navigation = () => (
   <nav className="nav">
     <ul>
       {
-        list.map((item, index) => (
-          <li key={index}>
-            <a href={`/${item.toLowerCase()}`}>{item}</a>
+        items.map(item => (
+          <li
+            key={item.id}
+            className="item"
+          >
+            <NavLink
+              activeClassName="active"
+              to={`/${item.label.toLowerCase()}`}
+            >
+              {item.label}
+            </NavLink>
           </li>
         ))
       }
     </ul>
   </nav>
 );
-Navigation.defaultProps = {
-  list: []
-};
-Navigation.propsType = {
-  list: PropTypes.array.isRequired
-};

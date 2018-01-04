@@ -1,0 +1,20 @@
+.task-actions {
+  display: inline;
+  padding-left: 20px;
+  .fa{
+    padding-right: 5px;
+  }
+  .fa-times {
+    color: darkred;
+  }
+  .fa-check {
+    color: greenyellow;
+  }
+  .fa-spinner {
+    color: plum;
+  }
+  .fa-refresh {
+    color: cornflowerblue;
+  }
+
+}

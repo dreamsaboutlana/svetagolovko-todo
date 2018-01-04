@@ -1,42 +1,38 @@
-import { TabNav } from './TabNav';
-import { TabContent } from './TabContent';
+import { TabContent, Tab, TabLink, TabNav } from './';
 
 import './tabs.scss';
 
 export class Tabs extends Component {
   constructor(props) {
     super(props);
-    this.state = { content: '' };
-  }
-
-  componentDidMount() {
-    this.clickTab(0);
+    this.state = { id: +this.props.selectedIndex || 0 };
   }
 
   clickTab = (id) => {
-    this.setState({
-      content: this.props.tabs[id].content,
-    });
+    this.setState({ id });
   };
 
   render() {
+    const tabs = this.props.children
+      .filter(child => child.type === Tab)
+      .reduce((prev, next) => [...prev, ...next.props.children], []);
+
+    const navList = tabs.filter(tab => tab.type === TabLink);
+    const tabContent = tabs.filter(tab => tab.type === TabContent);
     return (
-      <section className="tab">
+      <div className="tabs">
         <TabNav
-          list={
-            this.props.tabs.map(({ id, title }) => ({ id, title }))
-          }
           select={this.clickTab}
-        />
-        <TabContent content={this.state.content} />
-      </section>
-    );
+          activeIndex={this.state.id}
+        >
+          {navList}
+        </TabNav>
+
+        {tabContent[this.state.id]}
+      </div>
+
+    )
+      ;
+
   }
 }
-
-Tabs.defaultProps = {
-  tabs: []
-};
-Tabs.propsType = {
-  tabs: PropTypes.array
-};
