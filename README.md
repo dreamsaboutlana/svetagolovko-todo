@@ -1,4 +1,4 @@
-# ToDo application from the JS Advanced course
+# ToDo application(test)
 
 ## How to setup  
 1.Go to root directory and _`run npm install`_  
